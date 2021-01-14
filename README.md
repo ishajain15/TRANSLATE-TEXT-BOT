@@ -1,3 +1,3 @@
-# Text-to-Audio-BOT
+# Translator-Reddit-Bot
 
-Reddit bot that converts audio from text to audio.
+Reddit bot that translates text.
