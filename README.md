@@ -1,3 +1,3 @@
-# Audio-to-Text-BOT
+# Text-to-Audio-BOT
 
-Reddit bot that converts audio from video to text.
+Reddit bot that converts audio from text to audio.
