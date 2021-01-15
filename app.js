@@ -9,21 +9,41 @@ const client = new Snoowrap({
 	password: '!translate776'
 });
 
-const cld = require('cld');
+/* const cld = require('cld');
 async function testCld(txt) {
     let result;
     try {
         result = await cld.detect(txt);
     }
     catch (err) {
-        console.log("Cannot detect language");
+        console.log("CANNOT DETECT LANGUAGE :(");
         return;
     }
     console.log(result);
     let languageName = result.languages[0].name;
-    console.log('Detected language: ' + languageName);
+    console.log('DETECTED LANGUAGE: ' + languageName);
 }
 testCld('Bonjour');
+*/
+
+// If you've installed from npm, do:
+const translate = require('@k3rn31p4nic/google-translate-api');
+const ISO6391 = require('iso-639-1');
+
+async function test(lang) {
+    let result;
+    try {
+        result = await translate('I spea Dutch', {to: ISO6391.getCode(lang)});
+    }
+    catch (err) { //error not being catched
+        console.log("CANNOT DETECT LANGUAGE :(");
+        return;
+    }
+    console.log('Did you mean \'' + result.from.text.value + '\'?');
+    console.log('Detected language: ' + ISO6391.getName(result.from.language.iso));
+    console.log('Translating to ' + lang + ': ' + result.text);
+}
+test('French');
 
 const BOT_START = Date.now() / 1000;
 
