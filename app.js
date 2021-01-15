@@ -42,7 +42,7 @@ async function translateText(item, text, lang) {
         result = await translate(text, {to: isocode});
     }
     catch (err) { //error not being catched
-        item.reply("CANNOT DETECT LANGUAGE\n\nPLEASE MAKE SURE YOU SPELL THE LANGUAGE CORRECTLY\n\nIF THAT'S NOT THE ISSUE, I DO NOT SUPPORT THAT LANGUAGE\n\nSORRY :(");
+        item.reply("CANNOT TRANSLATE\n\nPLEASE MAKE SURE YOU SPELL THE LANGUAGE CORRECTLY\n\nIF THAT'S NOT THE ISSUE, I DO NOT SUPPORT THAT LANGUAGE\n\nSORRY :(");
         return;
     }
     let response = '';
