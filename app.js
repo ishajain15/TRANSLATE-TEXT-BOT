@@ -10,10 +10,10 @@ const client = new Snoowrap({
 });
 
 const cld = require('cld');
-async function testCld() {
+async function testCld(txt) {
     let result;
     try {
-        result = await cld.detect('Bonjour mon ami');
+        result = await cld.detect(txt);
     }
     catch (err) {
         console.log("Cannot detect language");
@@ -23,7 +23,7 @@ async function testCld() {
     let languageName = result.languages[0].name;
     console.log('Detected language: ' + languageName);
 }
-testCld();
+testCld('Bonjour');
 
 const BOT_START = Date.now() / 1000;
 
