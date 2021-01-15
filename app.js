@@ -33,20 +33,21 @@ testCld('Bonjour');
 const translate = require('@k3rn31p4nic/google-translate-api');
 const ISO6391 = require('iso-639-1');
 
-async function test(lang) {
+async function test(text, lang) {
     let result;
     try {
-        result = await translate('I spea Dutch', {to: ISO6391.getCode(lang)});
+        if (ISO6391.getCode(lang) == '') throw err;
+        result = await translate(text, {to: ISO6391.getCode(lang)});
     }
     catch (err) { //error not being catched
-        console.log("CANNOT DETECT LANGUAGE :(");
+        console.log("CANNOT DETECT LANGUAGE\nPLEASE MAKE SURE YOU SPELL THE LANGUAGE CORRECTLY\n\nIF THAT'S NOT THE ISSUE, I DO NOT SUPPORT THAT LANGUAGE\nSORRY :(");
         return;
     }
-    console.log('Did you mean \'' + result.from.text.value + '\'?');
+    if (result.from.text.autoCorrected) console.log('Did you mean \'' + result.from.text.value + '\'?');
     console.log('Detected language: ' + ISO6391.getName(result.from.language.iso));
     console.log('Translating to ' + lang + ': ' + result.text);
 }
-test('French');
+test('Hey there, my name is Isha', 'French');
 
 const BOT_START = Date.now() / 1000;
 
