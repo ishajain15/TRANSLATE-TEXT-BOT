@@ -9,7 +9,10 @@ const client = new Snoowrap({
 	password: '!translate776'
 });
 
-/* const cld = require('cld');
+/* 
+//NOT A VERY GOOD DETECTOR, 
+//CANNOT DETECT LANGUAGE IF ONE WORD IS GIVEN AS INPUT
+const cld = require('cld');
 async function testCld(txt) {
     let result;
     try {
